@@ -22,9 +22,7 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     ViewController *view = [[ViewController alloc]init];
     ZLNavgationController *nav = [[ZLNavgationController alloc]initWithRootViewController:view];
-    
     self.window.rootViewController = nav;
-    
     [self.window makeKeyAndVisible];
 
     

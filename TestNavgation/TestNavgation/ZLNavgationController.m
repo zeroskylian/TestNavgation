@@ -8,7 +8,6 @@
 
 #import "ZLNavgationController.h"
 
-
 @interface ZLNavgationController ()<UINavigationControllerDelegate,UIGestureRecognizerDelegate>
 @property (nonatomic , weak)UIViewController *rootViewController;
 @end
@@ -25,21 +24,24 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.delegate = self;
-    
     /**
      *  如果没重写nav的返回按钮，则系统默认会设置delegate
      *  在这里设置 或者在push里设置
      */
-    self.interactivePopGestureRecognizer.delegate = self;
+
+    __weak typeof(self) weakSelf = self;
+    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.interactivePopGestureRecognizer.delegate = weakSelf;
+        self.delegate =  weakSelf;
+    }
 }
+
 
 -(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    //    if ([self.topViewController isEqual:self.rootViewController]) {
-    //        return NO;
-    //    }
-    
+//    if ([self.topViewController isEqual:self.rootViewController]) {
+//        return NO;
+//    }
     /**
      *  或
      */
@@ -58,22 +60,26 @@
     }
     [super pushViewController:viewController animated:animated];
 }
-
--(NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]){
-        self.interactivePopGestureRecognizer.enabled = NO;
-    }
-    
-    return [super popToViewController:viewController animated:animated];
-}
--(UIViewController *)popViewControllerAnimated:(BOOL)animated
-{
-    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]){
-        self.interactivePopGestureRecognizer.enabled = NO;
-    }
-    return [super popViewControllerAnimated:animated];
-}
+/**
+ *  注意，这是错误，如果重写在重写 pop方法中self.interactivePopGestureRecognizer.enabled = no;那么页面将卡主
+ *
+ * 博客也不能全信
+ */
+//-(NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated
+//{
+//    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]){
+//        self.interactivePopGestureRecognizer.enabled = NO;
+//    }
+//    
+//    return [super popToViewController:viewController animated:animated];
+//}
+//-(UIViewController *)popViewControllerAnimated:(BOOL)animated
+//{
+//    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]){
+//        self.interactivePopGestureRecognizer.enabled = no;
+//    }
+//    return [super popViewControllerAnimated:animated];
+//}
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animate
 {
@@ -82,7 +88,5 @@
     {
         self.interactivePopGestureRecognizer.enabled = YES;
     }
-    
-    
 }
 @end
