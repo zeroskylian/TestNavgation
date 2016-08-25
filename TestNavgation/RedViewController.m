@@ -13,12 +13,6 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor redColor];
-    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
-    [btn setTitle:@"root" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(popToRoot) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc]initWithCustomView:btn];
-    
-    self.navigationItem.leftBarButtonItem = leftBarBtn;
 }
 -(void)popToRoot
 {

@@ -13,6 +13,7 @@
 		26E9C9991D6A880300BA40CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E9C9981D6A880300BA40CD /* Assets.xcassets */; };
 		26E9C99C1D6A880300BA40CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E9C99A1D6A880300BA40CD /* LaunchScreen.storyboard */; };
 		26E9C9A61D6A894800BA40CD /* ZLNavgationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E9C9A51D6A894800BA40CD /* ZLNavgationController.m */; };
+		A8CA9C301D6F231A00BB4B83 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = A8CA9C2F1D6F231A00BB4B83 /* back.png */; };
 		A8E15F0D1D6DDAF0006AC1D8 /* RedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E15F0C1D6DDAF0006AC1D8 /* RedViewController.m */; };
 		A8E15F101D6DE881006AC1D8 /* UINavigationController+ZLCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E15F0F1D6DE881006AC1D8 /* UINavigationController+ZLCategory.m */; };
 /* End PBXBuildFile section */
@@ -29,6 +30,7 @@
 		26E9C99D1D6A880300BA40CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26E9C9A41D6A894800BA40CD /* ZLNavgationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLNavgationController.h; sourceTree = "<group>"; };
 		26E9C9A51D6A894800BA40CD /* ZLNavgationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLNavgationController.m; sourceTree = "<group>"; };
+		A8CA9C2F1D6F231A00BB4B83 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		A8E15F0B1D6DDAF0006AC1D8 /* RedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedViewController.h; sourceTree = "<group>"; };
 		A8E15F0C1D6DDAF0006AC1D8 /* RedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedViewController.m; sourceTree = "<group>"; };
 		A8E15F0E1D6DE881006AC1D8 /* UINavigationController+ZLCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+ZLCategory.h"; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				A8E15F0F1D6DE881006AC1D8 /* UINavigationController+ZLCategory.m */,
 				26E9C9A41D6A894800BA40CD /* ZLNavgationController.h */,
 				26E9C9A51D6A894800BA40CD /* ZLNavgationController.m */,
+				A8CA9C2F1D6F231A00BB4B83 /* back.png */,
 			);
 			path = TestNavgation;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			files = (
 				26E9C99C1D6A880300BA40CD /* LaunchScreen.storyboard in Resources */,
 				26E9C9991D6A880300BA40CD /* Assets.xcassets in Resources */,
+				A8CA9C301D6F231A00BB4B83 /* back.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

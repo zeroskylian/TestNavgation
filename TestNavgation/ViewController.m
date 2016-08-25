@@ -22,6 +22,8 @@
     self.title = @"121";
     self.navigationController.titleColor = [UIColor redColor];
     
+    
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];

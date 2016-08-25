@@ -28,12 +28,13 @@
      *  如果没重写nav的返回按钮，则系统默认会设置delegate
      *  在这里设置 或者在push里设置
      */
-
     __weak typeof(self) weakSelf = self;
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.interactivePopGestureRecognizer.delegate = weakSelf;
         self.delegate =  weakSelf;
     }
+    
+
 }
 
 
@@ -58,32 +59,24 @@
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]){
         self.interactivePopGestureRecognizer.enabled = NO;
     }
+    if (self.viewControllers.count > 0) {
+        viewController.hidesBottomBarWhenPushed = YES;
+        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 16)];
+        [button setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(popView) forControlEvents:UIControlEventTouchUpInside];
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
+        
+    }
     [super pushViewController:viewController animated:animated];
 }
-/**
- *  注意，这是错误，如果重写在重写 pop方法中self.interactivePopGestureRecognizer.enabled = no;那么页面将卡主
- *
- * 博客也不能全信
- */
-//-(NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated
-//{
-//    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]){
-//        self.interactivePopGestureRecognizer.enabled = NO;
-//    }
-//    
-//    return [super popToViewController:viewController animated:animated];
-//}
-//-(UIViewController *)popViewControllerAnimated:(BOOL)animated
-//{
-//    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)]){
-//        self.interactivePopGestureRecognizer.enabled = no;
-//    }
-//    return [super popViewControllerAnimated:animated];
-//}
 
+
+-(void)popView
+{
+    [self popViewControllerAnimated:YES];
+}
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animate
 {
-    // Enable the gesture again once the new controller is shown
     if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
     {
         self.interactivePopGestureRecognizer.enabled = YES;
