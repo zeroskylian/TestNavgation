@@ -17,6 +17,9 @@
  *  标题字体大小
  */
 @property (assign, nonatomic)NSInteger titleFontSize;
-
+/**
+ *  导航栏背景颜色
+ */
+@property (strong, nonatomic)UIColor *navBarBackgroundColor;
 
 @end
