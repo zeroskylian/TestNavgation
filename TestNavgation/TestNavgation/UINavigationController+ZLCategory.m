@@ -14,7 +14,7 @@ static void *kZLNavgationSize = @"kZLNavgationSize";
 
 static void *kZLNavgationColor = @"kZLNavgationColor";
 
-
+static void *kZLNavgationbackgroundColor = @"kZLNavgationbackgroundColor";
 
 @implementation UINavigationController (ZLCategory)
 
@@ -41,6 +41,18 @@ static void *kZLNavgationColor = @"kZLNavgationColor";
     return  objc_getAssociatedObject(self, &kZLNavgationColor);
 }
 
+-(void)setNavBarBackgroundColor:(UIColor *)navBarBackgroundColor
+{
+    objc_setAssociatedObject(self, &kZLNavgationbackgroundColor, navBarBackgroundColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    self.navigationBar.barTintColor = navBarBackgroundColor;
+    
+}
+
+-(UIColor *)navBarBackgroundColor
+{
+    return objc_getAssociatedObject(self, &kZLNavgationbackgroundColor);
+}
 @end
 
 
